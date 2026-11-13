@@ -20,3 +20,11 @@
 - Kiểm tra quyền phân phối sprite trước khi công khai; xem ASSET_NOTICES.md.
 
 Không có bản IPA đã build/ký, kiểm thử App Store, máy chủ nhiều người chơi hay kiểm thử tải mạng.
+
+## Cập nhật V2 — 13/11/2026
+
+- 13/13 kiểm thử tự động và kiểm tra cú pháp đã đạt. Ba kiểm thử mới kiểm tra tọa độ 25 mục atlas, giữ dữ liệu bản lưu V1 và chín hiệu ứng ở các thời điểm vòng đời.
+- Chrome, khung 844 × 390: xác nhận HUD thu gọn, tạo hình nhân vật/quái/thú mới, chiến đấu bằng băng và thiên thạch, EXP/vàng/nhiệm vụ cập nhật.
+- Xác nhận tải bản lưu vùng tuyết và phế tích, hiển thị boss cùng thanh máu, thư viện hoạt ảnh ở trạng thái đánh.
+- V2 gồm 84 tư thế vẽ cho 13 loại nhân vật/quái/thú, tổ chức thành năm trạng thái; 12 hình cảnh vật. Thú hiện dùng đứng/đi trong thế giới, các trạng thái khác xem trong thư viện. Hướng nhìn trái/phải, chưa có bộ tám hướng.
+- Chưa kiểm tra V2 trên iPhone thật, chưa chơi lại toàn chiến dịch. Các giới hạn thiết bị và ngoại tuyến phía trên vẫn áp dụng.

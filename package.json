@@ -1,1 +1,14 @@
-{"name":"pixelworld-rift","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests/*.test.mjs","check":"node --check src/game.js && node --check src/render.js && node --check src/core.js"},"engines":{"node":">=20"}}
+{
+  "name": "pixelworld-rift",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check src/game.js && node --check src/render.js && node --check src/core.js && node --check src/art.js && node --check src/landscape.js && node --check src/effects.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

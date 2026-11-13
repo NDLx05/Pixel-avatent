@@ -15,3 +15,6 @@ Game source, Canvas environment drawings, fox/chicken procedural animation, UI, 
 ## Original README
 
 See `docs/ORIGINAL_ASSET_README.txt` for the original supplied text.
+
+## V2 generated artwork
+assets/v2/*.png được tạo mới bằng công cụ tạo ảnh tích hợp theo ảnh tham khảo người dùng. Ảnh gốc không được đóng gói lại. Sprite gốc V1 vẫn đi kèm để tương thích/fallback và vẫn chịu các lưu ý nguồn gốc phía trên. Không coi hình tạo mới là bằng chứng đã xác minh quyền với ảnh tham khảo.

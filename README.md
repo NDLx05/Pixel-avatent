@@ -1,4 +1,4 @@
-# PixelWorld — Echoes of the Rift
+# PixelWorld V2 — Reborn · Echoes of the Rift
 
 Game nhập vai pixel **một người chơi**, thiết kế cho Safari iPhone ở chiều ngang và trình duyệt máy tính. Giao diện lấy cảm hứng từ MMORPG. Đây là mã nguồn web/PWA chơi được; không phải IPA, ứng dụng đã ký để lên App Store, hoặc máy chủ MMO.
 
@@ -22,10 +22,12 @@ Nếu đã có Python, cũng có thể chạy `python -m http.server 8080` tại
 
 - **3 lớp:** Kiếm Vệ, Linh Pháp, Du Hiệp; chỉ số, phạm vi đánh và hiệu ứng kỹ năng khác nhau.
 - **8 quái:** slime xanh, dơi, sói, bộ xương, goblin, nhện, imp, golem boss.
-- **5 trạng thái cho toàn bộ 11 sprite gốc:** idle, walk, attack, hurt, die. Giữ nguyên atlas gốc, dùng manifest để phát từng trạng thái; lật ngang khi đổi hướng.
-- **2 thú mới vẽ bằng Canvas:** cáo và gà. Có 5 trạng thái xem trong thư viện; trong gameplay, thú là bạn đồng hành trang trí, dùng đứng/di chuyển, không tham chiến.
+- **Đồ họa V2:** 3 anh hùng mới (8 tư thế mỗi lớp), 8 quái mới (6 tư thế mỗi loại), cáo và gà mới (6 tư thế mỗi loài).
+- Năm trạng thái idle/walk/attack/hurt/die phát từ atlas mới, kết hợp nhún, lao ra đòn và mờ dần. Hướng trái/phải dùng lật ngang; chưa có bộ 4/8 hướng riêng.
+- Hai thú là bạn đồng hành trang trí, không tham chiến; tư thế pounce/recoil/sleep xem được trong thư viện hoạt ảnh.
+- 12 đạo cụ môi trường mới: sồi, thông, cây hoa, thông tuyết, nhà thường/nhà tuyết, tháp cổ/tháp dung nham, đá rêu, tinh thể băng, đá dung nham, rương.
 - **3 vùng 1800 × 1400:** Thung Lũng Lục Bảo, Băng Nguyên Tĩnh Lặng, Phế Tích Tro Tàn.
-- Nhà, rừng, đường mòn, suối, cầu, tuyết, dung nham, cổng, rương và hiệu ứng môi trường vẽ bằng mã.
+- Bản đồ làm lại: đường lát đá, bờ sông nhiều lớp, cầu, đèn đường và đom đóm; cây/nhà/đá dùng atlas V2.
 - **6 nhiệm vụ liên tiếp**, mở vùng mới, boss cuối, màn hình hoàn thành chương.
 - Tấn công thường, hai kỹ năng, lướt có thời gian miễn thương, hồi phục, năng lượng/cooldown.
 - Tự chọn mục tiêu gần, kinh nghiệm, lên cấp, nâng cấp vũ khí/giáp, mua bình, 9 rương.
@@ -55,7 +57,7 @@ Bảng menu tạm dừng chiến đấu. Hoàn thành mục tiêu rồi bấm **
 - Bản lưu nằm trong `localStorage` với khóa `pixelworld.rift.v1`, riêng theo trình duyệt và tên miền.
 - Đổi thiết bị, xóa dữ liệu Safari hoặc đổi địa chỉ hosting không tự chuyển bản lưu. Dùng **Tạm dừng → Xuất bản lưu / Nhập bản lưu**.
 - Ngoại tuyến chỉ hoạt động sau khi toàn bộ tài nguyên đã được cache. iOS có thể dọn bộ nhớ trang web; nên xuất bản lưu định kỳ.
-- Khi cập nhật game, đổi `CACHE` trong `sw.js` (ví dụ `pixelworld-v1.0.2`) để khách nhận nội dung mới. Danh sách `FILES` phải được bổ sung khi thêm tài nguyên.
+- Khi cập nhật game, đổi `CACHE` trong `sw.js` (ví dụ `pixelworld-v2.0.2`) để khách nhận nội dung mới. Danh sách `FILES` phải được bổ sung khi thêm tài nguyên.
 
 ## Cấu trúc mã nguồn
 
@@ -85,6 +87,10 @@ Xem **[QA.md](docs/QA.md)** về phạm vi đã kiểm tra và các bước cầ
 
 - Không có server, tài khoản, multiplayer, giao dịch hoặc đồng bộ cloud.
 - Sprite dùng hướng trái/phải (lật ngang); không có bộ hướng nhìn lên/xuống riêng.
-- Nguồn gốc hoạt ảnh giữ theo gói người dùng gửi. Một số trạng thái idle có hai hình khác nhau lặp lại; cuối trạng thái die có frame trong suốt để biến mất, có chủ đích.
-- Thú và hiệu ứng mới là hình vẽ theo thời gian bằng mã, không phải bộ sprite PNG mới từng frame.
+- Atlas V2 là hình tạo mới theo ảnh tham khảo; không phải bản sao chính xác từng pixel. Các tư thế ít frame kết hợp biến đổi bằng mã, chưa phải animation studio nhiều chục frame/hướng.
+- Hiệu ứng kỹ năng vẽ theo thời gian bằng Canvas; các nhân vật/quái/thú V2 có atlas PNG riêng trong assets/v2/.
 - Xem **ASSET_NOTICES.md**: gói sprite gốc chưa có giấy phép phân phối rõ ràng. Kiểm tra quyền đối với tài nguyên trước khi công khai repository/phát hành thương mại.
+
+## Cập nhật từ V1
+
+Đọc [CAP_NHAT_V2.md](docs/CAP_NHAT_V2.md). Bản cập nhật giữ khóa và cấu trúc bản lưu V1.
